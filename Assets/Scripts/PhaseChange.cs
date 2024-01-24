@@ -5,7 +5,7 @@ using UnityEngine;
 public class PhaseChange : MonoBehaviour
 {
     [Range(0, 6)]
-    private int state;
+    public int state;
     //0 = Solide
     //1 = Liquide
     //2 = Gazeux
@@ -21,11 +21,14 @@ public class PhaseChange : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        float temp = collision.gameObject.GetComponent<RoomParameter>().temperature;
-        float pres = collision.gameObject.GetComponent<RoomParameter>().pressure;
-        Vector2 param = new Vector2(temp, pres);
-        StateCheck(param);
-        Debug.Log(state);
+        if (collision.gameObject.tag == "Room")
+        {
+            float temp = collision.gameObject.GetComponent<RoomParameter>().temperature;
+            float pres = collision.gameObject.GetComponent<RoomParameter>().pressure;
+            Vector2 param = new Vector2(temp, pres);
+            StateCheck(param);
+            Debug.Log(state);
+        }
     }
 
     void StateCheck(Vector2 param)
