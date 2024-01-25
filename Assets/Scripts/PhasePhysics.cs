@@ -43,7 +43,7 @@ public class PhasePhysics : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fan" && state == 2)
         {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8), ForceMode2D.Force);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(collision.gameObject.transform.up, ForceMode2D.Force);
         }
     }
 }
