@@ -13,7 +13,7 @@ public class PhasePhysics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int state = gameObject.GetComponent<PhaseChange>().state;
+        state = gameObject.GetComponent<PhaseChange>().state;
         if (state == 1 || state == 2 || state == 4)
         {
             foreach (var grate in grates)
@@ -43,8 +43,7 @@ public class PhasePhysics : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fan" && state == 2)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8), ForceMode2D.Force);
-            Debug.Log("Wind");
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8), ForceMode2D.Force);
         }
     }
 }
