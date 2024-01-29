@@ -27,7 +27,6 @@ public class PhaseChange : MonoBehaviour
             float pres = collision.gameObject.GetComponent<RoomParameter>().pressure;
             Vector2 param = new Vector2(temp, pres);
             StateCheck(param);
-            Debug.Log(state);
         }
     }
 
